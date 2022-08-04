@@ -24,7 +24,7 @@ pipeline {
             script {
                 try {
                    // -- Download GIT Code 
-                    git clone ""
+                    git clone "https://github.com/AbhijeetBhalke/Newselenium.git"
 
                 } catch (err) { 
                     echo "The Download GIT Code Stage failed"                                          
