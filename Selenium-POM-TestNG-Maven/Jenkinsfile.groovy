@@ -24,11 +24,7 @@ pipeline {
             script {
                 try {
                    // -- Download GIT Code 
-                    echo "Downloading GIT Code from: ${JOB_GIT_URL}. Branch: ${JOB_GIT_BRANCH}"
-
-                    //-- Git checkout
-                    git branch: "${JOB_GIT_BRANCH}", changelog: false, credentialsId: "${env.JOB_GIT_CREDENTIAL}", 
-                    poll: false, url: "${JOB_GIT_URL}"
+                    git clone ""
 
                 } catch (err) { 
                     echo "The Download GIT Code Stage failed"                                          
@@ -47,9 +43,7 @@ pipeline {
                 // -- Script to launch Appium Test
                 script {
                     try {
-                        sh """
-                            mvn clean -Dos="${JOB_OS}" -Dbrowser="${JOB_BROWSER}" -DtestSuite="${SUITE_NAME}" test
-                        """
+                        sh "mvn clean test"
                         echo "Publishing Junit Results"
                         junit "**/target/surefire-reports/junitreports/*.xml"
 
