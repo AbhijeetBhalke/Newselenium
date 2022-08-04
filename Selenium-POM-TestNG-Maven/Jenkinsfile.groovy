@@ -19,20 +19,6 @@ pipeline {
     // --------------------------------
     // -- STAGE: Download GIT Code
     // --------------------------------
-    stage("Download GIT Code") {
-        steps {
-            script {
-                try {
-                   // -- Download GIT Code 
-                    ssh://AbhijeetBhalke@github.com/AbhijeetBhalke/Newselenium.git
-
-                } catch (err) { 
-                    echo "The Download GIT Code Stage failed"                                          
-                }
-            }   
-        }
-    }
-
     // Parameters needed: JOB_OS, JOB_BROWSER, SUITE_NAME 
     // --------------------------------
     // -- STAGE: Selenium Test
